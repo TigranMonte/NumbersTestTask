@@ -34,14 +34,10 @@ class NumbersViewModelTest {
         //get some data
         interactor.changeExpectedResult(NumbersResult.Failure("no internet connection"))
         viewModel.fetchRandomNumberData()
-
         assertEquals(true, communications.progressCalledList[2])
-
         assertEquals(1, interactor.fetchAboutRandomNumberCalledList.size)
-
         assertEquals(4, communications.progressCalledList.size)
         assertEquals(false, communications.progressCalledList[3])
-
         assertEquals(2, communications.stateCalledList.size)
         assertEquals(UiState.Error("no internet connection"), communications.stateCalledList[1])
         assertEquals(0, communications.timesShowList)
